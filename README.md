@@ -10,4 +10,4 @@ The Project aimed to gain and prove my skills in Data Engineering that is stream
 
 ## Result
 - The project using python 3.8 
-<video src="media/mongodb-kafka.mp4" controls>
+[<video src="media/mongodb-kafka.mp4" controls>](https://github.com/artso17/mongodb-kafka-hw/assets/78079780/1193ff70-b949-4843-9379-d9c52c7aa426)https://github.com/artso17/mongodb-kafka-hw/assets/78079780/1193ff70-b949-4843-9379-d9c52c7aa426
