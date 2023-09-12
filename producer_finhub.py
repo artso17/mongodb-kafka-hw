@@ -7,7 +7,10 @@ from time import sleep
 import json
 import websocket
 import pandas as pd 
+import configparser
 
+conf = configparser.ConfigParser()
+conf.read('config.ini')
 # %%
 # Setup producer config
 config = {
@@ -15,7 +18,7 @@ config = {
     'security.protocol' : 'SASL_SSL',
     'sasl.mechanisms' : 'PLAIN',
     'sasl.username' : 'ZXY2LQ7VXL7465XI',
-    'sasl.password' : 'frwB0U4k81JkwlC8eQS9GnCq1ZTGHnfS1bAYkUU8qqGPoe+pSQxutiuEuoZSMTpC'
+    'sasl.password' : conf['confluent']['pwd'],
 
 }
 
@@ -57,7 +60,7 @@ def on_open(ws):
 
 # Instantiate websocket and run
 websocket.enableTrace(True)
-ws = websocket.WebSocketApp("wss://ws.finnhub.io?token=cjus0h9r01qlmkvcqn30cjus0h9r01qlmkvcqn3g",
+ws = websocket.WebSocketApp(F"wss://ws.finnhub.io?token={conf['finhub']['token']}",
                               on_message = on_message,
                               on_error = on_error,
                               on_close = on_close)

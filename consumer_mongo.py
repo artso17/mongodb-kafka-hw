@@ -3,8 +3,11 @@
 import pandas as pd 
 import json
 import pymongo
+import configparser
 from confluent_kafka import Consumer
 
+conf = configparser.ConfigParser()
+conf.read('config.ini')
 
 # %%
 # Setup consumer config
@@ -13,7 +16,7 @@ config = {
     'security.protocol' : 'SASL_SSL',
     'sasl.mechanisms' : 'PLAIN',
     'sasl.username' : 'ZXY2LQ7VXL7465XI',
-    'sasl.password' : 'frwB0U4k81JkwlC8eQS9GnCq1ZTGHnfS1bAYkUU8qqGPoe+pSQxutiuEuoZSMTpC',
+    'sasl.password' : conf['confluent']['pwd'],
     'group.id' : 'group-python-1',
     'auto.offset.reset' : 'earliest'
 
@@ -26,7 +29,7 @@ consumer.subscribe(['topic_1'])
 
 # %%
 # MongoDB connection
-mongodb_uri = 'mongodb+srv://aditya:qwerty123@cluster1.hvcexxi.mongodb.net/'
+mongodb_uri = conf['mongo']['uri']
 mongo_client = pymongo.MongoClient(mongodb_uri)
 db = mongo_client['aditya']
 collection = db['project/homework'] 
@@ -65,3 +68,5 @@ finally:
 
 
 
+
+# %%
