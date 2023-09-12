@@ -12,7 +12,3 @@ The Project aimed to gain and prove my skills in Data Engineering that is stream
 - The project using python 3.8
 
 
-
-https://github.com/artso17/mongodb-kafka-hw/assets/78079780/6de171e4-285b-44b9-bbdf-3fb3e5f33945
-
-
